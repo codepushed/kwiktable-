@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 80px;
+  overflow: hidden;
+
+  &__flower {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%) translateX(5%);
+    width: 750px;
+    height: 750px;
+    pointer-events: none;
+
+    img {
+      object-fit: contain;
+    }
+
+    @media (max-width: 1024px) {
+      width: 650px;
+      height: 650px;
+    }
+
+    @media (max-width: 768px) {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  &__title {
+    font-size: clamp(19rem, 18vw, 25rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: 0;
+    white-space: nowrap;
+
+    &--layer {
+      width: auto;
+      margin-left: 0;
+      padding-left: 0.5rem;
+      margin-left: 36px;
+      line-height: 220px;
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 8px 0 0 0;
+    padding-left: 1rem;
+    background: linear-gradient(90deg, #6b5b95 0%, #9b8bb9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 50px;
+  }
+
+  &__cta {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+
+    @media (max-width: 768px) {
+      margin-top: 64px;
+    }
+  }
+
+  &__button {
+    background: linear-gradient(135deg, #5d4e7a 0%, #7b6b9a 100%);
+    border-radius: 9999px;
+    padding: 10px 18px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      padding: 2px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(93, 78, 122, 0.3);
+    }
+  }
+}
