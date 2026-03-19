@@ -1,0 +1,145 @@
+.footer {
+  width: 100%;
+  background: #000000;
+
+  &__hero {
+    position: relative;
+    width: 100%;
+  }
+
+  // Black area behind the top half of the text
+  &__black-bar {
+    width: 100%;
+    height: clamp(3rem, 10vw, 9rem);
+    background: #000000;
+  }
+
+  // Wrapper positions the text at the boundary of black bar and image
+  &__logo-wrap {
+    position: absolute;
+    top: clamp(0.5rem, 2.5vw, 2.5rem);
+    left: 0;
+    right: 0;
+    z-index: 3;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  &__logo-text {
+    font-family: 'Salita', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(6rem, 20vw, 18rem);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    background: linear-gradient(to bottom, #ffffff 50%, #000000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__bottom {
+    background: #e8e5de;
+    padding: 40px 48px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #555;
+    }
+
+    &--btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.9rem;
+    color: rgba(26, 26, 26, 0.5);
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__logo-wrap {
+      padding: 0 16px;
+    }
+
+    &__image {
+      aspect-ratio: 4 / 3;
+    }
+
+    &__bottom {
+      padding: 32px 24px;
+    }
+
+    &__nav {
+      gap: 24px 32px;
+      margin-bottom: 16px;
+    }
+
+    &__link {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    &__logo-wrap {
+      padding: 0 12px;
+    }
+
+    &__image {
+      aspect-ratio: 3 / 2;
+    }
+
+    &__bottom {
+      padding: 24px 16px;
+    }
+
+    &__nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    &__link {
+      font-size: 1rem;
+    }
+
+    &__copyright {
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+  }
+}

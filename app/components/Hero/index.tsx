@@ -1,7 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
+import ContactModal from '../ContactModal';
 import './Hero.scss';
 
 const Hero = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="hero">
       <div className="hero__flower">
@@ -20,8 +26,15 @@ const Hero = () => {
       </div>
 
       <div className="hero__cta">
-        <button className="hero__button">Get Started now</button>
+        <button className="hero__button" onClick={() => setModalOpen(true)}>
+          Get Started now
+        </button>
       </div>
+
+      <ContactModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </section>
   );
 };
